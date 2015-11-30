@@ -22,6 +22,7 @@ function content_type_for_file(file) {
   var ext = path.extname(file).toLowerCase();
   switch (ext) {
     case ".html" : return "text/html";
+    case ".css" : return "text/css";
     default: return "text/plain";
   }
 }
