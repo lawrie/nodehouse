@@ -1,0 +1,27 @@
+table {
+    border-collapse: collapse;
+    float: left;
+    width: 200px;
+    padding: 10px;
+    height: 200px;
+    background-color: #FFBBBB;
+    margin: 10px;
+}
+
+table, th, td {
+    border: 1px solid black;
+    height: 20px;
+}
+
+th {
+    background-color: #FFACEC;
+}
+
+caption {
+    background-color: #D0BCFE;
+}
+
+h1 {
+    font-family:Arial;
+}
+

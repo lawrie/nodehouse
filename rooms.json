@@ -1,0 +1,44 @@
+ {
+"Power":{
+"emonhub/rx/5/values":{"Total": null},
+"/house/rooms/first-floor/kitchen/dishwasher/power":{"Dish washer":null},
+"/house/rooms/ground-floor/utility/washer/power":{"Washer":null},
+"/house/rooms/ground-floor/utility/dryer/power":{"Dryer":null},
+"/house/rooms/ground-floor/dining-room/games/power":{"Games":null}
+},
+"Utility room":{
+"/weather/temperature":{"Temperature":null, "scale": 0.1},
+"/weather/pressure":{"Pressure":null, "scale": 0.01}
+},
+"Kitchen":{
+"/house/rooms/first-floor/kitchen/temperature":{"Temperature":null},
+"/house/rooms/first-floor/kitchen/light-level":{"Light Level":null},
+"/house/rooms/first-floor/kitchen/occupied":{"Occupied":null},
+"/house/rooms/first-floor/kitchen/humidity":{"Humidity":null}
+},
+"Living Room":{
+"/house/rooms/first-floor/living-room/front/temperature":{"Front temperature":null},
+"/house/rooms/first-floor/living-room/back/temperature":{"Back temperature":null},
+"/house/rooms/first-floor/living-room/front/light-level":{"Front Light Level":null},
+"/house/rooms/first-floor/living-room/back/light-level":{"Back Light Level":null},
+"/house/rooms/first-floor/living-room/front/occupied":{"Front Occupied":null},
+"/house/rooms/first-floor/living-room/back/occupied":{"Back Occupied":null},
+"/house/rooms/first-floor/living-room/couch/occupied":{"Couch Occupied":null}},
+"Landing":{
+"/house/rooms/second-floor/landing/temperature":{"Temperature":null},
+"/house/rooms/second-floor/landing/lightlevel":{"Light Level":null},
+"/house/rooms/second-floor/landing/occupied":{"Occupied":null}
+},
+"Bathroom":{
+"/house/rooms/second-floor/bathroom/temperature":{"Temperature":null, "scale": 0.1}
+},
+"Second bedroom":{
+"/house/rooms/second-floor/second-bedroom/temperature":{"Temperature":null,"scale": 0.1},
+"/house/rooms/second-floor/second-bedroom/humidity":{"Humidity":null, "scale":0.1}
+},
+"Master bedroom":{
+"/house/rooms/second-floor/master-bedroom/temperature":{"Temperature":null, "scale": 0.1},
+"/house/rooms/second-floor/master-bedroom/light-level":{"Light level":null}
+}
+}
+
