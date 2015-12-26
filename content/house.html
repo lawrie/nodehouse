@@ -79,6 +79,19 @@
             console.log("Selector is " + selector + ", value is " + value);
 
 	    $(selector).html(value);
+
+            if (caption == "Power") {
+              //console.log("Updating " + name + " in Power");
+
+              var sum = 0;
+              var total = parseFloat($('#Power .Total').text());
+              $('#Power tr:not(:last):not(:first) td:nth-child(2)').each(function() {
+                //console.log("Value is " + $(this).text());
+                if ($(this).text() != "")
+                  sum += parseFloat($(this).text());
+              });            
+              $('#Power .Other').text((total - sum).toFixed(2));
+            }
           }
         }
     };
@@ -105,13 +118,31 @@
 
         $('#Power > .Total').html("123");
 
+        $("#send").click(function(){
+          var message = new Paho.MQTT.Message($("#cmd").val());
+          message.destinationName = "/house/command";
+          mqtt.send(message);
+          $("#cmd").val("");
+        });
+
         MQTTconnect();
     });
 
     </script>
   </head>
   <body>
+<ul>
+  <li><a href="house.html">House</a></li>
+  <li><a href="rooms.html">Rooms</a></li>
+  <li><a href="remote.html">Remote</a></li>
+  <li><a href="topics.html">Topics</a></li>
+  <li><a href="http://192.168.0.33">Cameras</a></li>
+</ul>
     <div id="tables">
+    </div>
+    <div id="command">
+     Command: <input type="text" id="cmd">
+      <input id = "send" type="submit" value="Send"/>
     </div>
   </body>
 </html>

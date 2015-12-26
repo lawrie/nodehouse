@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <link type="text/css" rel="stylesheet" href="style.css"/>
+<link rel="stylesheet" type="text/css" href="styles.css">
+    <script type="text/javascript" src="d3/d3.js"></script>
+    <script type="text/javascript" src="d3/d3.layout.js"></script>
+    <script type="text/javascript" src="mqttws31.js"></script>
+    <script type="text/javascript" src="topic-tree.js"></script>
+    <style type="text/css">
+
+
+.node circle {
+  cursor: pointer;
+  fill: #fff;
+  stroke: steelblue;
+  stroke-width: 1.5px;
+}
+
+.node text {
+  font-size: 11px;
+}
+
+path.link {
+  fill: none;
+  stroke: #ccc;
+  stroke-width: 1.5px;
+}
+
+.popup rect {
+  fill: blue;
+  stroke: black;
+  stroke-width: 1.5px;
+  opacity: 1;
+  fill-opacity: 1;
+}
+
+.popup text {
+   fill: red;
+   font-weight: bold; 
+}
+    </style>
+  </head>
+  <body>
+<ul>
+  <li><a href="house.html">House</a></li>
+  <li><a href="topics.html">Topics</a></li>
+</ul>
+    <div id="body" style="width:1280px; height:800px; border=1px;">
+    	
+    </div>
+    <script type="text/javascript">
+
+setup("body");
+
+var client = new Paho.MQTT.Client(document.location.hostname,9001,"web" + new Date().getTime());
+client.onMessageArrived = onMessage;
+client.onconnectionlost = onDisconnect;
+function onConnect(){
+	client.subscribe('#',onMessage);
+	console.log("mqtt connected");
+}
+
+console.log("bar");
+client.connect({onSuccess:onConnect});
+
+function onMessage(message) {
+	//console.log(message.topic + "- " + message.payload);
+	addNode(message.destinationName, message.payloadString);
+}
+
+function onDisconnect(reason) {
+	console.log("disconnected - " + reason);
+	alert("disconnected - " + reason);
+}
+    </script>
+  </body>
+</html>
